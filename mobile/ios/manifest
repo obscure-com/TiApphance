@@ -1,0 +1,18 @@
+#
+# this is your module manifest and used by Titanium
+# during compilation, packaging, distribution, etc.
+#
+version: 0.1
+apiversion: 2
+description: Titanium module for Apphance SDK
+author: Paul Mietz Egli
+license: Apache 2.0
+copyright: Copyright (c) 2012 by Paul Mietz Egli
+
+
+# these should not be edited
+name: tiapphance
+moduleid: com.obscure.TiApphance
+guid: 066cb1c9-dbc6-4aad-9f78-936758e70801
+platform: iphone
+minsdk: 1.8.2
