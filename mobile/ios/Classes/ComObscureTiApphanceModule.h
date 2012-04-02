@@ -11,4 +11,14 @@
 
 @interface ComObscureTiApphanceModule : TiModule {
 }
+@property (readonly) NSNumber * MODE_MARKET;
+@property (readonly) NSNumber * MODE_QA;
+@property (readonly) NSNumber * MODE_SILENT;
+
+@property (readonly) NSNumber * LEVEL_VERBOSE;
+@property (readonly) NSNumber * LEVEL_INFO;
+@property (readonly) NSNumber * LEVEL_WARNING;
+@property (readonly) NSNumber * LEVEL_ERROR;
+@property (readonly) NSNumber * LEVEL_FATAL;
+
 @end

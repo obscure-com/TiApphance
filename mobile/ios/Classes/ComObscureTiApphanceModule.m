@@ -15,6 +15,9 @@
 
 @implementation ComObscureTiApphanceModule
 
+@synthesize MODE_MARKET=_MODE_MARKET, MODE_QA=_MODE_QA, MODE_SILENT=_MODE_SILENT;
+@synthesize LEVEL_VERBOSE=_LEVEL_VERBOSE,LEVEL_INFO=_LEVEL_INFO,LEVEL_WARNING=_LEVEL_WARNING,LEVEL_ERROR=_LEVEL_ERROR,LEVEL_FATAL=_LEVEL_FATAL;
+
 #pragma mark Internal
 
 - (id)moduleGUID {
@@ -32,6 +35,16 @@
     
     NSSetUncaughtExceptionHandler(&APHUncaughtExceptionHandler);
     
+    _MODE_MARKET = [NSNumber numberWithInt:0];
+    _MODE_QA = [NSNumber numberWithInt:1];
+    _MODE_SILENT = [NSNumber numberWithInt:2];
+    
+    _LEVEL_VERBOSE = [NSNumber numberWithInt:APHLogLevelVerbose];
+    _LEVEL_INFO = [NSNumber numberWithInt:APHLogLevelInfo];
+    _LEVEL_WARNING = [NSNumber numberWithInt:APHLogLevelWarning];
+    _LEVEL_ERROR = [NSNumber numberWithInt:APHLogLevelError];
+    _LEVEL_FATAL = [NSNumber numberWithInt:APHLogLevelFatal];
+    
 	NSLog(@"[INFO] %@ loaded",self);
 }
 
@@ -40,20 +53,6 @@
 }
 
 #pragma Public APIs
-
-- (id)getMODE_MARKET {
-    return [NSNumber numberWithInt:0];
-}
-
-- (id)getMODE_QA {
-    return [NSNumber numberWithInt:1];
-}
-
-- (id)getMODE_SILENT {
-    return [NSNumber numberWithInt:1];
-}
-
-
 
 - (void)startNewSession:(id)args {
     NSString * applicationKey;
@@ -75,5 +74,24 @@
     [APHLogger startNewSessionWithApplicationKey:applicationKey apphanceMode:apphanceMode];
 }
 
+-(void)APHExtendedLog:(id)args {
+    NSNumber * level;
+    NSString * tag;
+    NSString * format;
+    
+    ENSURE_ARG_AT_INDEX(level, args, 0, NSNumber)
+    ENSURE_ARG_AT_INDEX(tag, args, 1, NSString)
+    ENSURE_ARG_AT_INDEX(format, args, 2, NSString)
+    
+    NSArray * argarr = (NSArray *)args;
+    NSUInteger len = [argarr count] - 3;
+    id fmtargs[len];
+    
+    for (int i=3; i < len; i++) {
+        fmtargs[i] = [argarr objectAtIndex:(i+3)];
+    }
+    
+    APHExtendedLog((APHLogLevel) [level intValue], tag, format, (va_list)fmtargs);
+}
 
 @end
