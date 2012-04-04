@@ -77,21 +77,13 @@
 -(void)APHExtendedLog:(id)args {
     NSNumber * level;
     NSString * tag;
-    NSString * format;
+    NSString * message;
     
     ENSURE_ARG_AT_INDEX(level, args, 0, NSNumber)
     ENSURE_ARG_AT_INDEX(tag, args, 1, NSString)
-    ENSURE_ARG_AT_INDEX(format, args, 2, NSString)
+    ENSURE_ARG_AT_INDEX(message, args, 2, NSString)
     
-    NSArray * argarr = (NSArray *)args;
-    NSUInteger len = [argarr count] - 3;
-    id fmtargs[len];
-    
-    for (int i=3; i < len; i++) {
-        fmtargs[i] = [argarr objectAtIndex:(i+3)];
-    }
-    
-    APHExtendedLog((APHLogLevel) [level intValue], tag, format, (va_list)fmtargs);
+    APHExtendedLog((APHLogLevel) [level intValue], tag, message);
 }
 
 @end
