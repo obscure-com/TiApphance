@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ti:module xmlns:ti="http://ti.appcelerator.org" xmlns:android="http://schemas.android.com/apk/res/android">
+  <iphone></iphone>
+  <android xmlns:android="http://schemas.android.com/apk/res/android">
+    <manifest android:versionName="1.0.0">
+      <application>
+        <activity android:configChanges="orientation" android:name="com.apphance.android.ui.LoginActivity" android:launchMode="singleInstance"/>
+        <activity android:configChanges="orientation" android:name="com.apphance.android.ui.ProblemActivity" android:launchMode="singleInstance"/>
+      </application>
+      <uses-permission android:name="android.permission.INTERNET"/>
+      <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+      <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+      <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+      <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+      <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+      <uses-permission android:name="android.permission.BLUETOOTH"/>
+    </manifest>
+  </android>
+</ti:module>
