@@ -10,7 +10,7 @@
 //
 // How to add a Framework (example)
 //
-OTHER_LDFLAGS=$(inherited) -framework Apphance-iOS -F $(HOME)/Library/Frameworks -framework QuartzCore -framework AudioToolbox -framework CoreLocation -weak_framework CoreTelephony -weak_framework SystemConfiguration
+OTHER_LDFLAGS=$(inherited) -framework Apphance-Production -F $(HOME)/Library/Frameworks -framework QuartzCore -framework AudioToolbox -framework CoreLocation -weak_framework CoreTelephony -weak_framework SystemConfiguration
 
 //
 // Adding a framework for a specific version(s) of iPhone:

@@ -11,7 +11,7 @@
 #import "TiBase.h"
 #import "TiHost.h"
 #import "TiUtils.h"
-#import <Apphance-iOS/APHLogger.h>
+#import <Apphance-Production/APHLogger.h>
 
 @implementation ComObscureTiApphanceModule
 
@@ -70,8 +70,7 @@
             apphanceMode = kAPHApphanceModeSilent;
         }
     }
-    
-    [APHLogger startNewSessionWithApplicationKey:applicationKey apphanceMode:apphanceMode];
+    [APHLogger startNewSessionWithApplicationKey:applicationKey];
 }
 
 -(void)APHExtendedLog:(id)args {

@@ -6,7 +6,10 @@ by Paul Mietz Egli (paul@obscure.com)
 
 ## Using the Module
 
-See the Wiki pages for usage instructions and the samples directory for example apps.
+1. Download the Apphance production framework and place it in $HOME/Library/Frameworks.
+1. Build the module with `./build.py`
+1. Place the `com.obscure.tiapphance-iphone-0.2.zip` file in your application's root directory.
+1. Add `<module platform="iphone">com.obscure.tiapphance</module>` to your `tiapp.xml`.
 
 ## Requirements
 
